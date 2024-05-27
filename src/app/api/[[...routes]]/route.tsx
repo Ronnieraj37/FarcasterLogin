@@ -20,7 +20,10 @@ app.frame("/", (c) => {
         {"Random Dog Search"}
       </div>
     ),
-    intents: [<TextInput placeholder="Enter.." />, <Button>Submit</Button>],
+    intents: [
+      <TextInput key={0} placeholder="Enter.." />,
+      <Button key={1}>Submit</Button>,
+    ],
   });
 });
 
@@ -41,7 +44,7 @@ app.frame("/submit", async (c) => {
   return c.res({
     action: "/submit",
     image: `${value}`,
-    intents: [<Button>Next</Button>],
+    intents: [<Button key={0}>Next</Button>],
   });
 });
 
