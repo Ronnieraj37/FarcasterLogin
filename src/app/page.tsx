@@ -1,10 +1,12 @@
 "use client";
-import styles from "./page.module.css";
-import "@farcaster/auth-kit/styles.css";
 import { ThemeProvider } from "next-themes";
-import { AuthKitProvider, useProfile, SignInButton } from "@farcaster/auth-kit";
-import { useEffect } from "react";
+
+import "@farcaster/auth-kit/styles.css";
+import { AuthKitProvider, SignInButton } from "@farcaster/auth-kit";
+
 import Profile from "./profile";
+import Feed from "./feed";
+
 const config = {
   rpcUrl: "https://mainnet.optimism.io",
   domain: "example.com",
@@ -15,14 +17,14 @@ export default function Home() {
   return (
     <AuthKitProvider config={config}>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <main className={styles.main}>
-          <div style={{ color: "white", backgroundColor: "white" }}>
+        <main className="bg-white min-h-screen items-end">
+          <div className="p-4">
             <SignInButton
               onSuccess={({ fid, username }) => {
                 console.log(`Hello, ${username}! Your fid is ${fid}.`);
               }}
             />
-            <Profile />
+            <Feed />
           </div>
         </main>
       </ThemeProvider>

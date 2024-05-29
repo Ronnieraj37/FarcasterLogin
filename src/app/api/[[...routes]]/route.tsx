@@ -6,7 +6,7 @@ import { serveStatic } from "@airstack/frog/serve-static";
 const axios = require("axios");
 
 const app = new Frog({
-  apiKey: process.env.AIRSTACK_API_KEY as string,
+  apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
   basePath: "/api",
 });
 
