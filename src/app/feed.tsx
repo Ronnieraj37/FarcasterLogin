@@ -51,7 +51,7 @@ const Feed = () => {
                 </div>
               </div>
               <p className=" flex p-2">{castObj.cast.text}</p>
-              <div className="h-64 flex w-full justify-around items-center ">
+              <div className="h-64 p-2 flex w-full justify-around items-center ">
                 {castObj.cast.embeds.map((embed: any, i: number) => {
                   return (
                     <img
