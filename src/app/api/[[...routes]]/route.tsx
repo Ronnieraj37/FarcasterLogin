@@ -50,5 +50,6 @@ app.frame("/submit", async (c) => {
 
 devtools(app, { serveStatic });
 
-export const GET = handle(app);
-export const POST = handle(app);
+const GET = handle(app);
+const POST = handle(app);
+export { GET, POST } from "@frames.js/render/next";
