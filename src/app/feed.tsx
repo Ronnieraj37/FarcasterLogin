@@ -28,7 +28,7 @@ const Feed = () => {
   if (data) {
     const casts = data.TrendingCasts.TrendingCast;
     return (
-      <div className="flex flex-col text-black items-center justify-center p-2 ">
+      <div className="flex flex-col text-black items-center justify-center p-3 ">
         {casts.map((castObj: any, key: number) => {
           return (
             <div
