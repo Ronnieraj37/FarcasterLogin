@@ -1,4 +1,3 @@
-"use client";
 import { FrameUI, fallbackFrameContext, FrameContext } from "@frames.js/render";
 import { signFrameAction, FarcasterSigner } from "@frames.js/render/farcaster";
 import { FrameImageNext } from "@frames.js/render/next";

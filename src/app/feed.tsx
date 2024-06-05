@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { init, useQuery } from "@airstack/airstack-react";
@@ -54,13 +55,14 @@ const Feed = () => {
               <p className=" flex p-2">{castObj.cast.text}</p>
               <div className="h-64 p-2 flex w-full justify-around items-center ">
                 {castObj.cast.embeds.map(async (embed: any, i: number) => {
-                  async function checkImage(url: string) {
-                    const res = await fetch(url);
-                    const buff = await res.blob();
-                    return buff.type.startsWith("image/");
-                  }
-                  if (await checkImage(embed.url)) {
-                    console.log(embed.url, "is image : ");
+                  const isImgUrl = async (url: any) => {
+                    return fetch(url, { method: "HEAD" }).then((res) => {
+                      return res.headers
+                        .get("Content-Type")!
+                        .startsWith("image");
+                    });
+                  };
+                  if (await isImgUrl(embed.url)) {
                     return (
                       <img
                         key={i}
