@@ -3,11 +3,11 @@ import { Button, Frog, TextInput } from "@airstack/frog";
 import { handle } from "@airstack/frog/next";
 import { devtools } from "@airstack/frog/dev";
 import { serveStatic } from "@airstack/frog/serve-static";
-const axios = require("axios");
+import axios from "axios";
 
 const app = new Frog({
   apiKey: process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string,
-  basePath: "/api",
+  basePath: "/",
 });
 
 app.frame("/", (c) => {
