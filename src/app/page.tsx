@@ -3,7 +3,6 @@ import { ThemeProvider } from "next-themes";
 
 import "@farcaster/auth-kit/styles.css";
 import { AuthKitProvider, SignInButton } from "@farcaster/auth-kit";
-
 import Profile from "./profile";
 import Feed from "./feed";
 
