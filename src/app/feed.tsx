@@ -57,14 +57,10 @@ const Feed = () => {
                   async function checkImage(url: string) {
                     const res = await fetch(url);
                     const buff = await res.blob();
-                    console.log(
-                      embed.url,
-                      "is image : ",
-                      buff.type.startsWith("image/")
-                    );
                     return buff.type.startsWith("image/");
                   }
                   if (await checkImage(embed.url)) {
+                    console.log(embed.url, "is image : ");
                     return (
                       <img
                         key={i}
