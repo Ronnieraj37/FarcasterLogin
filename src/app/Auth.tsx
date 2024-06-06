@@ -15,7 +15,7 @@ const Auth = () => {
   return (
     <AuthKitProvider config={config}>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <main className="bg-white min-h-screen items-end">
+        <main className="">
           <div className="p-4">
             <SignIn />
             <Profile />
