@@ -1,14 +1,14 @@
-"use client";
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { init, useQuery } from "@airstack/airstack-react";
-import Frame from "./frame";
+
+import Post from "./components/Post";
 
 init(process.env.NEXT_PUBLIC_AIRSTACK_API_KEY as string);
 
 const query = `query MyQuery {
   TrendingCasts(
-    input: {timeFrame: one_hour, blockchain: ALL, criteria: likes, limit: 10}
+    input: {timeFrame: one_hour, blockchain: ALL, criteria: likes, limit: 20}
   ) {
     TrendingCast {
       fid
@@ -27,6 +27,7 @@ const query = `query MyQuery {
 
 const Feed = () => {
   const { data } = useQuery(query);
+  console.log("Login succeeded at fee.tsx");
   if (data) {
     const casts = data.TrendingCasts.TrendingCast;
     return (
@@ -35,7 +36,7 @@ const Feed = () => {
           return (
             <div
               key={key}
-              className="flex my-2 flex-col items-start justify-start p-2 border-[1px] rounded-xl border-black w-[80%]"
+              className="flex  my-2 flex-col items-start justify-start p-2 border-[1px] rounded-xl border-black w-[80%]"
             >
               <div className="flex p-1 items-center justify-center">
                 <img
@@ -53,28 +54,8 @@ const Feed = () => {
                 </div>
               </div>
               <p className=" flex p-2">{castObj.cast.text}</p>
-              <div className="h-64 p-2 flex w-full justify-around items-center ">
-                {castObj.cast.embeds.map(async (embed: any, i: number) => {
-                  const isImgUrl = async (url: any) => {
-                    return fetch(url, { method: "HEAD" }).then((res) => {
-                      return res.headers
-                        .get("Content-Type")!
-                        .startsWith("image");
-                    });
-                  };
-                  if (await isImgUrl(embed.url)) {
-                    return (
-                      <img
-                        key={i}
-                        className="h-56 "
-                        src={embed.url}
-                        alt="img..."
-                      />
-                    );
-                  }
-                  return <></>;
-                  // <Frame key={i} url={embed.url} />;
-                })}
+              <div className=" p-2 flex w-full justify-around items-center ">
+                <Post castObj={castObj} />
               </div>
             </div>
           );

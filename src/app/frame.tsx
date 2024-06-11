@@ -1,10 +1,14 @@
 import { FrameUI, fallbackFrameContext, FrameContext } from "@frames.js/render";
-import { signFrameAction, FarcasterSigner } from "@frames.js/render/farcaster";
+import {
+  signFrameAction,
+  FarcasterSigner,
+  mockFarcasterSigner,
+} from "@frames.js/render/farcaster";
 import { FrameImageNext } from "@frames.js/render/next";
 import { FrameButton } from "frames.js";
 import { useFrame } from "@frames.js/render/use-frame";
 
-export default function Frame({ url }: { url: any }) {
+export default function Frame({ url }: any) {
   // TODO: replace with your farcaster signer
   const farcasterSigner: FarcasterSigner = {
     fid: 1,
@@ -17,7 +21,8 @@ export default function Frame({ url }: { url: any }) {
 
   const frameState = useFrame({
     // replace with your frame url
-    homeframeUrl: url,
+    homeframeUrl:
+      "https://zora.co/collect/zora:0xf6a2ebee86aa500ca82c42186fd0e2a3b3eefced/5",
     // corresponds to the name of the route for POST in step 3
     frameActionProxy: "/frames",
     connectedAddress: undefined,
@@ -40,8 +45,12 @@ export default function Frame({ url }: { url: any }) {
   });
 
   return (
-    <div className="h-56">
-      <FrameUI frameState={frameState} theme={{}} FrameImage={FrameImageNext} />
+    <div className="border-b-2 flex h-64">
+      <FrameUI
+        frameState={frameState}
+        theme={{ buttonHoverBg: "blue" }}
+        FrameImage={FrameImageNext}
+      />
     </div>
   );
 }

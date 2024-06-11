@@ -1,4 +1,5 @@
 import { useProfile } from "@farcaster/auth-kit";
+import UserDetails from "./components/UserDetails";
 
 function Profile() {
   const profile = useProfile();
@@ -17,6 +18,7 @@ function Profile() {
           <p>
             Your custody address is: <pre>{custody}</pre>
           </p>
+          <UserDetails fid={fid} />
         </div>
       )}
     </div>
