@@ -14,7 +14,7 @@ const Auth = ({ setLoading }: any) => {
   return (
     <AuthKitProvider config={config}>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <main className="flex">
+        <main className="">
           <div className="p-4">
             <SignInButton
               onSuccess={({ fid, username }) => {
