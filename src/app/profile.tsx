@@ -12,12 +12,6 @@ function Profile() {
     <div style={{ color: "black" }}>
       {isAuthenticated && (
         <div>
-          <p>
-            Hello, {displayName}! Your FID is {fid}.
-          </p>
-          <p>
-            Your custody address is: <pre>{custody}</pre>
-          </p>
           <UserDetails fid={fid} />
         </div>
       )}

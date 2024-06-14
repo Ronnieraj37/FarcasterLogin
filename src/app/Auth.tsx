@@ -7,8 +7,8 @@ import { AuthKitProvider } from "@farcaster/auth-kit";
 import { SignInButton } from "@farcaster/auth-kit";
 const config = {
   rpcUrl: "https://mainnet.optimism.io",
-  domain: "https://farcaster-login.vercel.app/",
-  siweUri: "https://farcaster-login.vercel.app/login",
+  domain: "example.com",
+  siweUri: "https://example.com/login",
 };
 const Auth = ({ setLoading }: any) => {
   return (
